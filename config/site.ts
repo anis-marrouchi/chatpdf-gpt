@@ -20,6 +20,6 @@ export const siteConfig = {
   ],
   links: {
     twitter: "https://twitter.com/anis_marrouchi",
-    github: "https://github.com/anis-marrouchi",
+    github: "https://github.com/anis-marrouchi/chatpdf-gpt",
   },
 }
