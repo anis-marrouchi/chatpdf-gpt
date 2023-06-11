@@ -1,7 +1,11 @@
 {
-  "name": "next-template",
-  "version": "0.0.2",
+  "name": "chatpdf-gpt",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Anis Marrouchi",
+    "email": "anismarrouchi@hotmail.com"
+  },
   "scripts": {
     "postinstall": "prisma generate",
     "dev": "next dev",

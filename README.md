@@ -54,11 +54,15 @@ pnpm install
 ```
     
 3.  Create a `.env` file in the root directory and fill in your credentials (OpenAI, Pinecone, Supabase) as indicated in the `.env.example` file.
+
+4. Create the database schema using Prisma. You must make you have run the prisma generate command `prisma generate`
     
-4.  Start the server:
-    
-    
-    
+    ```
+    npx prisma migrate dev --name init
+    ```
+
+5.  Start the server:
+  
     ```
     npm run dev
     ```
