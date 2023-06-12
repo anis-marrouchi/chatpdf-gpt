@@ -30,7 +30,7 @@ import ReactMarkdown from 'react-markdown';
 
 import { useCredentialsCookie } from "@/context/credentials-context"
 import { useToast } from "@/hooks/use-toast"
-import { Check, CircleSlashed, Loader2 } from "lucide-react"
+import { Check, Loader2, UploadCloud } from "lucide-react"
 import { useDropzone } from "react-dropzone"
 
 // @ts-ignore
@@ -305,7 +305,7 @@ const Page = () => {
 
               onClick={uploadFiles}
             >
-              {!canUpload && <CircleSlashed className="mr-2 h-4 w-4" />}
+              {!canUpload && <UploadCloud className="mr-2 h-4 w-4" />}
               {canUpload && <Check className="mr-2 h-4 w-4" />}
               Let&apos;s chat
             </Button>}
