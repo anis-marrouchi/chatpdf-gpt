@@ -30,10 +30,10 @@ ChatPDF-GPT is equipped with examples that illustrate various operations such as
 
 ## Quick Testing Using the Demo
 
-To test the functionality of this project using the demo, you will need to provide your own credentials for OpenAI, Supabase, and Pinecone. Please consult the corresponding documentation to acquire these:
+
+To test the functionality of this project using the demo, you will need to provide your own credentials for OpenAI, Supabase, and Pinecone. For Supabase, you can follow the step-by-step guide provided below to setup and retrieve the necessary credentials. For acquiring credentials for OpenAI and Pinecone, please consult the corresponding documentation as a step-by-step guide may not be available. Always ensure you are following the latest instructions provided by the respective services.
 ### 1. OpenAI
 [OpenAI](https://platform.openai.com/docs/guides/authentication)
-TODO
 ### 2. Supabase
 1.  **Creating a New Project in Supabase**:
     
@@ -93,7 +93,6 @@ With this, you should be able to set up Supabase for your project and manage sto
 
 ### 3. Pincone
 [Pinecone](https://www.pinecone.io/docs/)
-TODO
 
 ## Setup and Installation
 
