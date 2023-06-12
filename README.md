@@ -31,10 +31,69 @@ ChatPDF-GPT is equipped with examples that illustrate various operations such as
 ## Quick Testing Using the Demo
 
 To test the functionality of this project using the demo, you will need to provide your own credentials for OpenAI, Supabase, and Pinecone. Please consult the corresponding documentation to acquire these:
+### 1. OpenAI
+[OpenAI](https://platform.openai.com/docs/guides/authentication)
+TODO
+### 2. Supabase
+1.  **Creating a New Project in Supabase**:
+    
+    -   Open your web browser and navigate to [app.supabase.io](https://app.supabase.io/).
+    -   Click on "New project".
+    -   Enter your project details and wait for the new PostgreSQL database to launch. It may take a few minutes for the process to complete.
+2.  **Retrieving the Database Connection URL**:
+    
+    -   Once your database is successfully created, navigate to your project's page.
+    -   Go to the "Settings" section.
+    -   Click the "Database" tab in the sidebar.
+    -   Scroll down to the bottom of the page and look for the "Connection string" section.
+    -   Choose "Nodejs" and copy the URL.
 
-1.  [OpenAI](https://platform.openai.com/docs/guides/authentication)
-2.  [Supabase](https://supabase.com/docs/guides/platform)
-3.  [Pinecone](https://www.pinecone.io/docs/)
+This connection string will be used for the `DATABASE_URL` environment variable in your application.
+
+3.  **Retrieving the Connection Pooling Connection String**:
+    -   Still in the "Database" tab of the "Settings" section, scroll to find the "Connection Pooling" section.
+    -   Choose "Nodejs" and copy the Connection Pooling URL.
+
+This URL will be used for the `DIRECT_URL` environment variable in your application.
+
+4.  **Retrieving Storage Keys**:
+    -   From your project's page, go to the "Settings" section.
+    -   Click the "API" tab in the sidebar.
+    -   Here, you will find your `SUPABASE_URL` and `SUPABASE_KEY`. Copy these values.
+
+The `SUPABASE_URL` is the URL for your project, while `SUPABASE_KEY` is the public anonymous key for your project.
+
+5.  **Setting up the Supabase Bucket**:
+    
+    -   From your project's page, go to the "Storage" section.
+    -   Here, create a new bucket or use an existing one. The name of the bucket will be used as `SUPABASE_BUCKET` in your application.
+6.  **Setting Up Environment Variables in Your Application**:
+    
+    -   Now, navigate to your project where you are using Supabase.
+    -   Add the following environment variables with the values you copied from the Supabase console:
+        -   `DATABASE_URL`
+        -   `DIRECT_URL`
+        -   `SUPABASE_KEY`
+        -   `SUPABASE_URL`
+        -   `SUPABASE_BUCKET`
+
+These keys will allow your application to interact with the Supabase services.
+
+
+7.  **Managing Storage Bucket Policies**:
+    -   Navigate to the "Storage" section from your project's page.
+    -   Click on the bucket for which you want to manage policies.
+    -   Click on the "Policies" tab to view the existing policies for the bucket.
+    -   To create a new policy, click the "Create policy" button and fill in the policy details as per your requirement.
+    -   To edit an existing policy, click on the policy in the list and make the necessary changes.
+
+Please note that while it's possible to set a policy that makes your storage bucket publicly accessible, you should do this with caution. Making your bucket publicly accessible means that anyone with the URL to an object can access it. This might be useful for testing, but for production applications, you should consider more restrictive policies to ensure the security of your data. Always consult the Supabase documentation or a security expert to understand the implications of different policies.
+
+With this, you should be able to set up Supabase for your project and manage storage policies as per your requirements.
+
+### 3. Pincone
+[Pinecone](https://www.pinecone.io/docs/)
+TODO
 
 ## Setup and Installation
 
