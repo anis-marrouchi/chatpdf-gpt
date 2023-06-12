@@ -25,6 +25,7 @@ const CredentialsCookieContext = createContext({
 // Sorry for the mess, I'm in a hurry
 export function CredentialsCookieProvider({ children }) {
   const [cookieValue, setCookieValue] = useState(initialCredentials)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setCookieForInitialNonEmptyValue = () => {
     // set cookie for key with a value in cookieValue
     const nonEmptCookieValue = {}
@@ -44,7 +45,7 @@ export function CredentialsCookieProvider({ children }) {
       setCookieForInitialNonEmptyValue()
     }
   }
-    , [cookieValue])
+    , [cookieValue, setCookieForInitialNonEmptyValue])
 
   useEffect(() => {
     const valuesFromCookie = cookies.get(credentials_cookie_key)

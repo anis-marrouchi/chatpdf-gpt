@@ -84,6 +84,7 @@ export default function CredentialsPage() {
       pineconeApiKey,
       supabaseKey,
       supabaseUrl,
+      supabaseBucket,
       supabaseDatabaseUrl,
       supabaseDirectUrl,
     })
