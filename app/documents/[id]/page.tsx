@@ -206,7 +206,7 @@ const { highlight } = searchPluginInstance;
           <div style={{
             border: '1px solid rgba(0, 0, 0, 0.3)',
             height: '93vh',
-          }} className="max-w max-h flex flex-col items-center justify-center rounded text-center shadow-md">
+          }} className="max-w max-h col-span-2  flex flex-col items-center justify-center rounded text-center shadow-md md:col-span-1">
 
             <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.6.172/build/pdf.worker.js">
 
@@ -217,7 +217,7 @@ const { highlight } = searchPluginInstance;
 
 
           </div>
-          <div  className="max-w max-h  flex flex-col justify-center rounded">
+          <div  className="max-w max-h col-span-2  flex flex-col justify-center rounded md:col-span-1">
             <div className="transition-width font-default relative mx-auto flex h-full w-full max-w-3xl flex-1 flex-col items-stretch overflow-hidden pb-12">
 
               <div className={styles.cloud}>
