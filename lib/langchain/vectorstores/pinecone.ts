@@ -4,7 +4,7 @@ import { PineconeStore } from "langchain/vectorstores/pinecone"
 import { OpenAIEmbeddings } from "langchain/embeddings/openai"
 import { PINECONE_NAME_SPACE } from "@/config/pinecone"
 
-export async function getPineconeStore(credentials, id) {
+export async function getPineconeStore(credentials, id = PINECONE_NAME_SPACE) {
   const { openaiApiKey, pineconeEnvironment, pineconeIndex, pineconeApiKey } = credentials
   const pinecone = await initPinecone(pineconeEnvironment, pineconeApiKey)
   const index = pinecone.Index(pineconeIndex)
@@ -15,7 +15,7 @@ export async function getPineconeStore(credentials, id) {
     {
       pineconeIndex: index,
       textKey: "text",
-      namespace: id || PINECONE_NAME_SPACE,
+      namespace: id,
     }
   )
 

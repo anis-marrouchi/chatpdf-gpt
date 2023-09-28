@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.redirect("/credentials")
   }
 
-  const { prompt, messages: history, id } = body
+  const { prompt, messages: history } = body
   // OpenAI recommends replacing newlines with spaces for best results
   const sanitizedQuestion = `${prompt.trim().replaceAll("\n", " ")}`
 
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     const stream = new TransformStream()
     const writer = stream.writable.getWriter()
 
-    const vectorStore = await getPineconeStore(credentials, id)
+    const vectorStore = await getPineconeStore(credentials)
 
     const modelHandler = new ModelHandler(writer)
     const model = modelHandler.getModel(credentials.openaiApiKey)

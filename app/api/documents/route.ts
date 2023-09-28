@@ -10,6 +10,7 @@ import { OpenAIEmbeddings } from "langchain/embeddings/openai"
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"
 import { PineconeStore } from "langchain/vectorstores/pinecone"
 import { createPrisma } from "@/lib/prisma"
+import {PINECONE_NAME_SPACE} from "@/config/pinecone";
 
 export async function POST(request: Request) {
   const body = await request.json()
@@ -65,7 +66,7 @@ export async function POST(request: Request) {
   //embed the PDF documents
   await PineconeStore.fromDocuments(docs, embeddings, {
     pineconeIndex: index,
-    namespace: data.id,
+    namespace: PINECONE_NAME_SPACE,
     textKey: "text",
   })
 
