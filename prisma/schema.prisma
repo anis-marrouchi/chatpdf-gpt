@@ -17,3 +17,12 @@ model Documents {
   url       String
   created_at   DateTime @default(now())
 }
+
+model ChatHistory {
+  id          String   @id @default(cuid())
+  childId       String
+  title       String?
+  messages       Json
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
+}
