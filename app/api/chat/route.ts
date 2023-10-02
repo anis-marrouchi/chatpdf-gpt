@@ -7,10 +7,18 @@ export const runtime = "edge"
 
 export async function POST(request: NextRequest) {
   const body = await request.json()
-  // Get credentials from cookies
-  const credentials = JSON.parse(
-    request.cookies.get("credentials")?.value || null
-  )
+  // Get credentials from ENV
+  const credentials = {
+    pineconeIndex: process.env.PINECONE_INDEX_NAME,
+    pineconeEnvironment: process.env.PINECONE_ENVIRONMENT,
+    pineconeApiKey: process.env.PINECONE_API_KEY,
+    openaiApiKey: process.env.OPENAI_API_KEY,
+    supabaseKey: process.env.SUPABASE_KEY,
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseBucket: process.env.SUPABASE_BUCKET,
+    supabaseDatabaseUrl: process.env.DATABASE_URL,
+    supabaseDirectUrl: process.env.DIRECT_URL
+  }
   if (
     !credentials ||
     !credentials.pineconeIndex ||
