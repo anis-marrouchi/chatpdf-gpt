@@ -10,7 +10,7 @@
     "node": "18.14.0"
   },
   "scripts": {
-    "postinstall": "prisma generate",
+    "postinstall": "npx prisma generate",
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
