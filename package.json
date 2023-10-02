@@ -6,6 +6,9 @@
     "name": "Anis Marrouchi",
     "email": "anismarrouchi@hotmail.com"
   },
+  "engines": {
+    "node": "18.14.0"
+  },
   "scripts": {
     "postinstall": "prisma generate",
     "dev": "next dev",
