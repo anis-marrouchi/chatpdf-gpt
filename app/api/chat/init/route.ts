@@ -22,6 +22,7 @@ export async function POST(request: Request) {
     data: {
       childId: childId,
       messages: childInitialContextMessage,
+      title: "Chat Title" //TODO: Need to be dynamic
     },
   })
 
