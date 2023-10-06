@@ -15,7 +15,7 @@ export async function getPineconeStore(credentials, id = PINECONE_NAME_SPACE) {
     {
       pineconeIndex: index,
       textKey: "text",
-      namespace: id,
+      // namespace: id,
     }
   )
 

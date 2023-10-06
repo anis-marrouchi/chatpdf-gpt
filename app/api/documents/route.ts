@@ -66,7 +66,7 @@ export async function POST(request: Request) {
   //embed the PDF documents
   await PineconeStore.fromDocuments(docs, embeddings, {
     pineconeIndex: index,
-    namespace: PINECONE_NAME_SPACE,
+    namespace: data.id,
     textKey: "text",
   })
 
