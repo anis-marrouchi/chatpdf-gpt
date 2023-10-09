@@ -57,7 +57,7 @@ const Page = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     // @todo: add support for multiple files
-    maxFiles: 1,
+    maxFiles: 100,
     accept: {
       "application/pdf": [".pdf"],
     },
@@ -116,30 +116,32 @@ const Page = () => {
   const uploadFiles = async () => {
     setLoading(true);
     try {
-      // @ts-ignore
-      const [file] = files
-      const uploadData: any = await uploadToSubabase(file, cookieValue.supabaseUrl, cookieValue.supabaseKey, cookieValue.supabaseBucket);
-      const res = await fetch('/api/documents', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          url: uploadData.path,
-          // @ts-ignore
-          name: file.name,
-          // Add any other associated data here
-          ...cookieValue
-        })
-      });
-      setLoading(false);
-      if (!res.ok) throw new Error(res.statusText);
+      const allFileUploads = [];
+      for (const file of files) {
+        const uploadData: any = await uploadToSubabase(file, cookieValue.supabaseUrl, cookieValue.supabaseKey, cookieValue.supabaseBucket);
+        const res = await fetch('/api/documents', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            url: uploadData.path,
+            // @ts-ignore
+            name: file.name,
+            // Add any other associated data here
+            ...cookieValue
+          })
+        });
+        allFileUploads.push(allFileUploads)
+      }
 
-      const { data } = await res.json();
-      console.log('uploadFiles', data);
+      Promise.resolve(allFileUploads).then((res) => {
+        setLoading(false);
+    })
+
       // navigate to the new document page
-      setDocument(data);
-      return data; // Here you can return the data you get from the server if you wish
+      // setDocument(data);
+      return {}; // Here you can return the data you get from the server if you wish
     } catch (error) {
       console.error(error);
     }
@@ -270,7 +272,7 @@ const Page = () => {
   }, [document, cookieValue]);
 
   return (
-    <section className="container grid grid-cols-2 items-center gap-6 pb-8 pt-6 md:py-10"> 
+    <section className="container grid grid-cols-2 items-center gap-6 pb-8 pt-6 md:py-10">
     {!checkCredentials() && <Alert className="col-span-2" variant="warning">
                   <AlertCircle className="h-4 w-4" />
                   <AlertDescription>
@@ -344,7 +346,7 @@ const Page = () => {
               {canUpload && <Check className="mr-2 h-4 w-4" />}
               Let&apos;s chat
             </Button>}
-        </div>        
+        </div>
       </div>}
       {document && <div style={{
         border: '1px solid rgba(0, 0, 0, 0.3)',
