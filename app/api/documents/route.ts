@@ -52,7 +52,7 @@ export async function POST(request: Request) {
 
   const docs = await textSplitter.splitDocuments(rawDocs)
 
-  console.log("creating vector store...")
+  console.log(`creating vector store for ${body.name}...`)
   /*create and store the embeddings in the vectorStore*/
   const embeddings = new OpenAIEmbeddings({
     openAIApiKey: openaiApiKey,
